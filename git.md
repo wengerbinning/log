@@ -119,7 +119,7 @@ Git的使用主要有管理本地仓库、远程仓库、仓库文件、版本�
   # 为当前分支的HEAD设定一个标签。
   git tag <tag name>
   # 为指定提交设定一个标签。
-  git tag <tag name> <commit id>
+  git tag -a <tag name> <commit id> -m <messgae>
   # 显示当前分支的所有标签。
   git tag
   # 删除一个标签。
@@ -197,6 +197,8 @@ Git的使用主要有管理本地仓库、远程仓库、仓库文件、版本�
   ```shell
   # 将本地仓库的变更推送到远程仓库。
   git push
+  # 将标签一起推送。
+  git push --tags
   ```
 
 * 【功能】获取远程仓库：
@@ -204,12 +206,15 @@ Git的使用主要有管理本地仓库、远程仓库、仓库文件、版本�
   ```shell
   # 获取远程仓库，不与本地仓库合并。
   git fetch
+  git fetch <remote label>
   ```
 
 * 【功能】管理远程仓库：
 
   ```shell
-  git remote
+  #　显示所有远程仓库。
+  git remote -v
+  git add <remote label> <url>
   ```
 
 ### 仓库文件
@@ -298,10 +303,17 @@ Git的使用主要有管理本地仓库、远程仓库、仓库文件、版本�
   git diff
   ```
 
-* 【功能】解决版本冲突：
+* 【功能】git栈：
 
   ```shell
+  # 将当前工作区中的内容备份到git栈中，并将工作去恢复到上次提交的状态。
   git stash
+  # 将git栈中的内容恢复到工作区中。
+  git stash pop
+  # 显示git栈中的存储情况。
+  git stash list
+  # 清空git栈。
+  git stash clear
   ```
 
 
